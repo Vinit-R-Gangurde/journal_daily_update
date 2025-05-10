@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +32,7 @@ public class UserControler {
 
 
     @PutMapping
-    public ResponseEntity<?> udateUser(@RequestBody User user){
+    public ResponseEntity<?> updateUser(@RequestBody User user){
 
 
         Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
@@ -42,7 +41,7 @@ public class UserControler {
 
             userInDb.setUserName(user.getUserName());
             userInDb.setPassword(user.getPassword());
-            userService.SaveEntry(userInDb);
+            userService.SaveNewUser(userInDb);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

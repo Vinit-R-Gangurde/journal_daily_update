@@ -1,8 +1,6 @@
 package com.VinitGangurde.journalApp.service;
 
-import com.VinitGangurde.journalApp.entity.JournalEntry;
 import com.VinitGangurde.journalApp.entity.User;
-import com.VinitGangurde.journalApp.repository.JournalEntryRepository;
 import com.VinitGangurde.journalApp.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
@@ -12,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -27,13 +24,13 @@ public class UserService {
 
     private static final PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 
-    public void SaveEntry(User user){
+    public void SaveNewUser(User user){
        user.setPassword(passwordEncoder.encode(user.getPassword()));
        user.setRoles(Arrays.asList("USER"));
         userRepository.save(user);
 
     }
-    public void SaveNewUser(User user){
+    public void saveUser(User user){
         userRepository.save(user);
 
     }
