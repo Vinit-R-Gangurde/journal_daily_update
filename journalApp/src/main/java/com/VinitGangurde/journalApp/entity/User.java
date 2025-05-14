@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "users")
-//@NoArgsConstructor
+@NoArgsConstructor
 @Data
 
 public class User {

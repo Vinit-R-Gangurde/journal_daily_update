@@ -32,7 +32,6 @@ public class JournalEntryControlerV2 {
     public ResponseEntity<?> getAllJournalEntriesOfUser(){
 
         Authentication authentication =SecurityContextHolder.getContext().getAuthentication();
-
         String userName=authentication.getName();
 
         User user = userService.findByUserName(userName);
